@@ -53,7 +53,7 @@
             this.label1.Location = new System.Drawing.Point(9, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 18);
+            this.label1.Size = new System.Drawing.Size(96, 17);
             this.label1.TabIndex = 16;
             this.label1.Text = "Internal Code:";
             // 
@@ -67,13 +67,14 @@
             this.SubmitBtn.TabIndex = 25;
             this.SubmitBtn.Text = "Delete";
             this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(115, 53);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 24);
+            this.textBox1.Size = new System.Drawing.Size(178, 22);
             this.textBox1.TabIndex = 26;
             // 
             // DeleteItemForm

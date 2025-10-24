@@ -52,13 +52,14 @@
             this.SubmitBtn.TabIndex = 24;
             this.SubmitBtn.Text = "Edit";
             this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // StockTxtBox
             // 
             this.StockTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockTxtBox.Location = new System.Drawing.Point(125, 142);
             this.StockTxtBox.Name = "StockTxtBox";
-            this.StockTxtBox.Size = new System.Drawing.Size(310, 24);
+            this.StockTxtBox.Size = new System.Drawing.Size(310, 22);
             this.StockTxtBox.TabIndex = 23;
             // 
             // TypeTxtBox
@@ -66,7 +67,7 @@
             this.TypeTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeTxtBox.Location = new System.Drawing.Point(125, 112);
             this.TypeTxtBox.Name = "TypeTxtBox";
-            this.TypeTxtBox.Size = new System.Drawing.Size(310, 24);
+            this.TypeTxtBox.Size = new System.Drawing.Size(310, 22);
             this.TypeTxtBox.TabIndex = 22;
             // 
             // NameTxtBox
@@ -74,7 +75,7 @@
             this.NameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameTxtBox.Location = new System.Drawing.Point(125, 81);
             this.NameTxtBox.Name = "NameTxtBox";
-            this.NameTxtBox.Size = new System.Drawing.Size(310, 24);
+            this.NameTxtBox.Size = new System.Drawing.Size(310, 22);
             this.NameTxtBox.TabIndex = 21;
             // 
             // DescriptionTxtBox
@@ -93,7 +94,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(12, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 18);
+            this.label5.Size = new System.Drawing.Size(136, 17);
             this.label5.TabIndex = 19;
             this.label5.Text = "Product Description:";
             // 
@@ -104,7 +105,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(12, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 18);
+            this.label4.Size = new System.Drawing.Size(100, 17);
             this.label4.TabIndex = 18;
             this.label4.Text = "Product Stock:";
             // 
@@ -115,7 +116,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 18);
+            this.label3.Size = new System.Drawing.Size(97, 17);
             this.label3.TabIndex = 17;
             this.label3.Text = "Product Type:";
             // 
@@ -126,7 +127,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 18);
+            this.label2.Size = new System.Drawing.Size(102, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Product Name:";
             // 
@@ -147,7 +148,7 @@
             this.label1.Location = new System.Drawing.Point(12, 53);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 18);
+            this.label1.Size = new System.Drawing.Size(96, 17);
             this.label1.TabIndex = 14;
             this.label1.Text = "Internal Code:";
             // 

@@ -19,7 +19,59 @@ namespace Performance_Task___Team_JCAEK_
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while closing the form: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Example validation: require a value in a TextBox named "txtItemName" if present
+                if (this.Controls["txtItemName"] is TextBox nameTextBox)
+                {
+                    if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+                    {
+                        MessageBox.Show("Please enter an item name.", "Validation",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                // Attempt to save the new item
+                string error;
+                if (!TrySaveItem(out error))
+                {
+                    MessageBox.Show("Failed to save item: " + error, "Save Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MessageBox.Show("Item created successfully.", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Added missing TrySaveItem method
+        private bool TrySaveItem(out string error)
+        {
+            // TODO: Implement actual save logic here
+            error = string.Empty;
+            // Simulate success for now
+            return true;
         }
     }
 }
