@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileManager.cs" />
+    <Compile Include="ProductManager.cs" />
     <Compile Include="DeleteItemForm.cs">
       <SubType>Form</SubType>
     </Compile>

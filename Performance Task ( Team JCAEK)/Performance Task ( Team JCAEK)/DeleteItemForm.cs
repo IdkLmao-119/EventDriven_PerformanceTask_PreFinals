@@ -12,6 +12,7 @@ namespace Performance_Task___Team_JCAEK_
 {
     public partial class DeleteItemForm: Form
     {
+        ProductManager pm = new ProductManager();
         public DeleteItemForm()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace Performance_Task___Team_JCAEK_
                 if (confirm != DialogResult.Yes) return;
 
                 // TODO: place actual deletion logic here
-
+                pm.DeleteProduct(0);
                 MessageBox.Show("Item deleted (placeholder).", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

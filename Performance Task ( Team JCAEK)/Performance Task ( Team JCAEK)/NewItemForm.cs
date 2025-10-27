@@ -12,6 +12,7 @@ namespace Performance_Task___Team_JCAEK_
 {
     public partial class NewItemForm: Form
     {
+        ProductManager pm = new ProductManager();
         public NewItemForm()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace Performance_Task___Team_JCAEK_
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
+                pm.AddProduct(NameTxtBox.Text, TypeTxtBox.Text, Convert.ToInt32(StockTxtBox.Text), 20.00, DescriptionTxtBox.Text);
                 MessageBox.Show("Item created successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
