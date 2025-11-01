@@ -25,7 +25,6 @@ namespace Performance_Task___Team_JCAEK_
             }
             catch (Exception ex)
             {
-                // Prevent the app from crashing on an unexpected UI error
                 MessageBox.Show("An error occurred while closing the form: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -35,17 +34,14 @@ namespace Performance_Task___Team_JCAEK_
         {
             try
             {
-                // Basic example validation: if a TextBox named "txtItemName" exists, require a value.
-                if (this.Controls["txtItemName"] is TextBox nameTextBox)
+                // Validate required fields
+                if (string.IsNullOrWhiteSpace(txtItemName.Text))
                 {
-                    if (string.IsNullOrWhiteSpace(nameTextBox.Text))
-                    {
-                        MessageBox.Show("Please enter an item name.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    MessageBox.Show("Please enter an item name.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                // Attempt to persist/save the edited item.
+                // Attempt to save the edited item
                 string error;
                 if (!TrySaveItem(out error))
                 {
@@ -58,86 +54,44 @@ namespace Performance_Task___Team_JCAEK_
             }
             catch (Exception ex)
             {
-                // Top-level exception handler for the submit action
                 MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// CHANGED METHOD: Now implements actual product editing logic
-        /// Purpose: To retrieve an existing product, update its properties from form controls,
-        /// and persist the changes to the data store
+        /// CHANGED METHOD: Now actually edits products using ProductManager
         /// </summary>
         private bool TrySaveItem(out string errorMessage)
         {
             errorMessage = null;
             try
             {
-                // CHANGED: Product ID retrieval and validation
-                // Purpose: Get the product ID from the form to identify which product to edit
-                if (this.Controls["txtProductID"] is TextBox idTextBox)
+                // Get the product index (line number in file)
+                if (!int.TryParse(txtProductIndex.Text, out int productIndex))
                 {
-                    // Parse product ID from text input with error handling
-                    if (!int.TryParse(idTextBox.Text, out int productId))
-                    {
-                        errorMessage = "Invalid product ID. Please enter a valid number.";
-                        return false;
-                    }
-
-                    // CHANGED: Product retrieval logic
-                    // Purpose: Fetch the existing product from the data store using the ID
-                    var product = ProductManager.GetProductById(productId);
-                    if (product == null)
-                    {
-                        errorMessage = "Product not found. Please check the product ID.";
-                        return false;
-                    }
-
-                    // CHANGED: Property update section
-                    // Purpose: Update product properties with new values from form controls
-
-                    // Update product name from txtItemName control
-                    if (this.Controls["txtItemName"] is TextBox nameTextBox)
-                        product.Name = nameTextBox.Text;
-
-                    // Update product description from txtDescription control
-                    if (this.Controls["txtDescription"] is TextBox descTextBox)
-                        product.Description = descTextBox.Text;
-
-                    // Update product price with validation for decimal format
-                    if (this.Controls["txtPrice"] is TextBox priceTextBox)
-                    {
-                        if (decimal.TryParse(priceTextBox.Text, out decimal price))
-                            product.Price = price;
-                        else
-                        {
-                            errorMessage = "Invalid price format. Please enter a valid decimal number.";
-                            return false;
-                        }
-                    }
-
-                    // Update stock quantity with validation for integer format
-                    if (this.Controls["txtStock"] is TextBox stockTextBox)
-                    {
-                        if (int.TryParse(stockTextBox.Text, out int stock))
-                            product.StockQuantity = stock;
-                        else
-                        {
-                            errorMessage = "Invalid stock quantity. Please enter a valid whole number.";
-                            return false;
-                        }
-                    }
-
-                    // CHANGED: Data persistence call
-                    // Purpose: Save the updated product back to the data store
-                    ProductManager.UpdateProduct(product);
-                }
-                else
-                {
-                    errorMessage = "Product ID field not found. Cannot identify which product to edit.";
+                    errorMessage = "Invalid product index. Please enter a valid number.";
                     return false;
                 }
+
+                // Get the new product name
+                if (string.IsNullOrWhiteSpace(txtItemName.Text))
+                {
+                    errorMessage = "Product name is required.";
+                    return false;
+                }
+                string productName = txtItemName.Text;
+
+                // Get the new product price
+                if (!double.TryParse(txtPrice.Text, out double productPrice))
+                {
+                    errorMessage = "Invalid price format. Please enter a valid number.";
+                    return false;
+                }
+
+                // Use ProductManager to edit the product in the file
+                ProductManager productManager = new ProductManager();
+                productManager.EditProduct(productIndex, productName, productPrice);
 
                 return true;
             }
