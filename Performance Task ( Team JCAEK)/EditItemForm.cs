@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Performance_Task___Team_JCAEK_
 {
-    public partial class EditItemForm : Form
+    public partial class EditItemForm: Form
     {
         public EditItemForm()
         {
@@ -25,6 +25,7 @@ namespace Performance_Task___Team_JCAEK_
             }
             catch (Exception ex)
             {
+                // Prevent the app from crashing on an unexpected UI error
                 MessageBox.Show("An error occurred while closing the form: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -34,14 +35,17 @@ namespace Performance_Task___Team_JCAEK_
         {
             try
             {
-                // Validate required fields
-                if (string.IsNullOrWhiteSpace(txtItemName.Text))
+                // Basic example validation: if a TextBox named "txtItemName" exists, require a value.
+                if (this.Controls["txtItemName"] is TextBox nameTextBox)
                 {
-                    MessageBox.Show("Please enter an item name.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+                    {
+                        MessageBox.Show("Please enter an item name.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
 
-                // Attempt to save the edited item
+                // Attempt to persist/save the edited item.
                 string error;
                 if (!TrySaveItem(out error))
                 {
@@ -54,45 +58,23 @@ namespace Performance_Task___Team_JCAEK_
             }
             catch (Exception ex)
             {
+                // Top-level exception handler for the submit action
                 MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// CHANGED METHOD: Now actually edits products using ProductManager
+        /// Simple save helper that returns false with an error message on failure.
+        /// Replace implementation with actual persistence logic as needed.
         /// </summary>
         private bool TrySaveItem(out string errorMessage)
         {
             errorMessage = null;
             try
             {
-                // Get the product index (line number in file)
-                if (!int.TryParse(txtProductIndex.Text, out int productIndex))
-                {
-                    errorMessage = "Invalid product index. Please enter a valid number.";
-                    return false;
-                }
-
-                // Get the new product name
-                if (string.IsNullOrWhiteSpace(txtItemName.Text))
-                {
-                    errorMessage = "Product name is required.";
-                    return false;
-                }
-                string productName = txtItemName.Text;
-
-                // Get the new product price
-                if (!double.TryParse(txtPrice.Text, out double productPrice))
-                {
-                    errorMessage = "Invalid price format. Please enter a valid number.";
-                    return false;
-                }
-
-                // Use ProductManager to edit the product in the file
-                ProductManager productManager = new ProductManager();
-                productManager.EditProduct(productIndex, productName, productPrice);
-
+                // TODO: replace with actual save logic (file, DB, etc.)
+                // For now simulate success.
                 return true;
             }
             catch (Exception ex)

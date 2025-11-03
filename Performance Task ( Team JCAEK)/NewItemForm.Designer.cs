@@ -40,6 +40,8 @@
             this.TypeTxtBox = new System.Windows.Forms.TextBox();
             this.StockTxtBox = new System.Windows.Forms.TextBox();
             this.SubmitBtn = new System.Windows.Forms.Button();
+            this.PriceTxtBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // MenuButton
@@ -108,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 175);
+            this.label5.Location = new System.Drawing.Point(13, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 17);
             this.label5.TabIndex = 7;
@@ -116,7 +118,7 @@
             // 
             // DescriptionTxtBox
             // 
-            this.DescriptionTxtBox.Location = new System.Drawing.Point(13, 196);
+            this.DescriptionTxtBox.Location = new System.Drawing.Point(16, 224);
             this.DescriptionTxtBox.Name = "DescriptionTxtBox";
             this.DescriptionTxtBox.Size = new System.Drawing.Size(423, 88);
             this.DescriptionTxtBox.TabIndex = 8;
@@ -146,7 +148,7 @@
             // SubmitBtn
             // 
             this.SubmitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitBtn.Location = new System.Drawing.Point(148, 302);
+            this.SubmitBtn.Location = new System.Drawing.Point(149, 319);
             this.SubmitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.Size = new System.Drawing.Size(140, 29);
@@ -155,12 +157,31 @@
             this.SubmitBtn.UseVisualStyleBackColor = true;
             this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
+            // PriceTxtBox
+            // 
+            this.PriceTxtBox.Location = new System.Drawing.Point(126, 172);
+            this.PriceTxtBox.Name = "PriceTxtBox";
+            this.PriceTxtBox.Size = new System.Drawing.Size(310, 22);
+            this.PriceTxtBox.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(13, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 17);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Product Price:";
+            // 
             // NewItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(448, 344);
+            this.ClientSize = new System.Drawing.Size(448, 372);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PriceTxtBox);
             this.Controls.Add(this.SubmitBtn);
             this.Controls.Add(this.StockTxtBox);
             this.Controls.Add(this.TypeTxtBox);
@@ -196,5 +217,7 @@
         private System.Windows.Forms.TextBox TypeTxtBox;
         private System.Windows.Forms.TextBox StockTxtBox;
         private System.Windows.Forms.Button SubmitBtn;
+        private System.Windows.Forms.TextBox PriceTxtBox;
+        private System.Windows.Forms.Label label6;
     }
 }
