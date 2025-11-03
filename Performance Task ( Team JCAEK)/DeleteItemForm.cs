@@ -17,13 +17,14 @@ namespace Performance_Task___Team_JCAEK_
         {
             InitializeComponent();
         }
-
+        // Goes back to the Main form.
         private void MenuButton_Click(object sender, EventArgs e)
         {
             try
             {
                 this.Close();
             }
+            //Generic exception error if something unexpected happened.
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while closing the form: " + ex.Message,
@@ -35,32 +36,33 @@ namespace Performance_Task___Team_JCAEK_
         {
             try
             {
-                // simple null checks and validation for the input textbox
-                if (this.textBox1 == null)
+                // Simple null checks and validation for the input textbox.
+                if (this.txtInternalCode == null)
                 {
                     MessageBox.Show("Input control not found.", "Validation",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                var idText = this.textBox1.Text;
+                // Checks if there is an input in the Internal Code text box.
+                var idText = this.txtInternalCode.Text;
                 if (string.IsNullOrWhiteSpace(idText))
                 {
                     MessageBox.Show("Please enter an internal code to delete.", "Validation",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
+                // Shows an action confirmation window to confirm deletion.
                 var confirm = MessageBox.Show($"Delete item with internal code '{idText}'?", "Confirm Delete",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm != DialogResult.Yes) return;
 
-                // TODO: place actual deletion logic here
-                pm.DeleteProduct(0);
+                // Deletes a product and shows a task completion window.
+                pm.DeleteProduct(Convert.ToInt32(txtInternalCode.Text));
                 MessageBox.Show("Item deleted (placeholder).", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
+            //Generic Exception error if something unexpected happened.
             catch (Exception ex)
             {
                 MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error",
