@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,17 +34,22 @@ namespace Performance_Task___Team_JCAEK_
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
+            ProductManager delete = new ProductManager();
+
+
+
+
             try
             {
                 // simple null checks and validation for the input textbox
-                if (this.textBox1 == null)
+                if (this.txtInternalCode == null)
                 {
                     MessageBox.Show("Input control not found.", "Validation",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                var idText = this.textBox1.Text;
+                var idText = this.txtInternalCode.Text;
                 if (string.IsNullOrWhiteSpace(idText))
                 {
                     MessageBox.Show("Please enter an internal code to delete.", "Validation",
@@ -56,7 +62,7 @@ namespace Performance_Task___Team_JCAEK_
                 if (confirm != DialogResult.Yes) return;
 
                 // TODO: place actual deletion logic here
-                pm.DeleteProduct(0);
+                pm.DeleteProduct(Convert.ToInt32(txtInternalCode.Text));
                 MessageBox.Show("Item deleted (placeholder).", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
