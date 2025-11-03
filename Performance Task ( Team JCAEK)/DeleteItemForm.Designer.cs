@@ -31,7 +31,7 @@
             this.MenuButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SubmitBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtInternalCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // MenuButton
@@ -69,13 +69,13 @@
             this.SubmitBtn.UseVisualStyleBackColor = true;
             this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
-            // textBox1
+            // txtInternalCode
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(115, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 22);
-            this.textBox1.TabIndex = 26;
+            this.txtInternalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInternalCode.Location = new System.Drawing.Point(115, 53);
+            this.txtInternalCode.Name = "txtInternalCode";
+            this.txtInternalCode.Size = new System.Drawing.Size(178, 22);
+            this.txtInternalCode.TabIndex = 26;
             // 
             // DeleteItemForm
             // 
@@ -83,7 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(305, 139);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtInternalCode);
             this.Controls.Add(this.SubmitBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MenuButton);
@@ -99,6 +99,6 @@
         private System.Windows.Forms.Button MenuButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SubmitBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInternalCode;
     }
 }
