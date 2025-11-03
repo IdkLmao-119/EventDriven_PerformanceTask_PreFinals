@@ -1,3 +1,0 @@
-Joy,20,Soap,100,20,Green Dishwashing Liquid - 60 pcs per box
-Prime,67,Beverage,67,67,
-Joy,12.53,Asjs,1234,12.53,ASa
