@@ -12,8 +12,6 @@ namespace Performance_Task___Team_JCAEK_
 {
     public partial class InventoryListForm : Form
     {
-        DatabaseManager dm = new DatabaseManager();
-
         public InventoryListForm()
         {
             InitializeComponent();
@@ -25,7 +23,9 @@ namespace Performance_Task___Team_JCAEK_
             this.Close();
         }
 
-        // NEW METHOD: Loads products from file into the DataGridView
+        /// <summary>
+        /// NEW METHOD: Loads products from file into the DataGridView
+        /// </summary>
         private void LoadProductsIntoGrid()
         {
             try
@@ -34,10 +34,10 @@ namespace Performance_Task___Team_JCAEK_
                 dataGridView1.AutoGenerateColumns = true;
 
                 // Create ProductManager to access the data file
-                //ProductManager productManager = new ProductManager();
+                ProductManager productManager = new ProductManager();
 
                 // Load products into the DataGridView
-                dm.ShowAllProductsInGrid(dataGridView1);
+                productManager.ShowAllProductsInGrid(dataGridView1);
             }
             catch (Exception ex)
             {

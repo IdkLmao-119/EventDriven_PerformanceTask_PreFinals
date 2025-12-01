@@ -46,8 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthManager.cs" />
-    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="ProductManager.cs" />
     <Compile Include="DeleteItemForm.cs">
@@ -117,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -130,6 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\construction_center_illustration_logo_design-removebg-preview - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11construction_center_illustration_logo_design-removebg-preview %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
