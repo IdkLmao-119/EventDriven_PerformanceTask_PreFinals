@@ -12,7 +12,8 @@ namespace Performance_Task___Team_JCAEK_
 {
     public partial class DeleteItemForm: Form
     {
-        ProductManager pm = new ProductManager();
+        DatabaseManager dm = new DatabaseManager();
+        //ProductManager pm = new ProductManager();
         public DeleteItemForm()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Performance_Task___Team_JCAEK_
             try
             {
                 int internalCode = Convert.ToInt32(txtInternalCode.Text);
-                pm.DeleteProduct(internalCode);
+                //pm.DeleteProduct(internalCode);
 
                 MessageBox.Show("Product deleted successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
