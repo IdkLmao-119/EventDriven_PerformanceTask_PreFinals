@@ -9,7 +9,6 @@ namespace Performance_Task___Team_JCAEK_
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
