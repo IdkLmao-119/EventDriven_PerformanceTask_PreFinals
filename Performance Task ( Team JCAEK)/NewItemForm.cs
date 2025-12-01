@@ -12,9 +12,7 @@ namespace Performance_Task___Team_JCAEK_
 {
     public partial class NewItemForm: Form
     {
-        DatabaseManager dm = new DatabaseManager();
-
-        //ProductManager pm = new ProductManager();
+        ProductManager pm = new ProductManager();
         public NewItemForm()
         {
             InitializeComponent();
@@ -56,8 +54,7 @@ namespace Performance_Task___Team_JCAEK_
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                dm.AddItem(NameTxtBox.Text, TypeTxtBox.Text, Convert.ToInt32(StockTxtBox.Text), Convert.ToDouble(PriceTxtBox.Text), DescriptionTxtBox.Text);
-                //pm.AddProduct(NameTxtBox.Text, TypeTxtBox.Text, Convert.ToInt32(StockTxtBox.Text), Convert.ToDouble(PriceTxtBox.Text), DescriptionTxtBox.Text);
+                pm.AddProduct(NameTxtBox.Text, TypeTxtBox.Text, Convert.ToInt32(StockTxtBox.Text), Convert.ToDouble(PriceTxtBox.Text), DescriptionTxtBox.Text);
                 MessageBox.Show("Item created successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

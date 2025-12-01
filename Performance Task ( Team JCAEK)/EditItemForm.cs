@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Performance_Task___Team_JCAEK_
 {
     public partial class EditItemForm: Form
     {
-        DatabaseManager dm = new DatabaseManager();
-        // ProductManager pm = new ProductManager();
+        ProductManager pm = new ProductManager();
         public EditItemForm()
         {
             InitializeComponent();
@@ -21,18 +27,15 @@ namespace Performance_Task___Team_JCAEK_
             catch (Exception ex)
             {
                 // Prevent the app from crashing on an unexpected UI error
-                // Erick's note: Weh di nga lolololololololol
                 MessageBox.Show("An error occurred while closing the form: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
             try
             {
                 // Basic validation
-                // Erick's note: WAHAHAHAHAHA nuto
                 if (this.Controls["txtItemName"] is TextBox nameTextBox)
                 {
                     if (string.IsNullOrWhiteSpace(nameTextBox.Text))
@@ -43,15 +46,12 @@ namespace Performance_Task___Team_JCAEK_
                 }
 
                 int internalCode = Convert.ToInt32(InternalCodeTxt.Text);
-                dm.UpdateItem(internalCode, NameTxtBox.Text, TypeTxtBox.Text, Convert.ToInt32(StockTxtBox.Text), Convert.ToDouble(PriceTxtBox.Text), DescriptionTxtBox.Text);
 
-                // Imma commit this so wag tatanggalin yung comments lmao
-                /*
                 pm.EditProduct(internalCode, NameTxtBox.Text, TypeTxtBox.Text,
                                Convert.ToInt32(StockTxtBox.Text),
                                Convert.ToDouble(PriceTxtBox.Text),
                                DescriptionTxtBox.Text);
-                */
+
                 MessageBox.Show("Item saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
